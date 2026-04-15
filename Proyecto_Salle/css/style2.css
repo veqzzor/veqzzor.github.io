@@ -1,0 +1,141 @@
+:root {
+    --primary: #1d3557;
+    --accent: #ffcc00;
+    --white: #ffffff;
+    --text: #333;
+}
+
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    color: var(--text);
+    /* Fondo visible y fijo */
+    background-image: linear-gradient(rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.65)), 
+                      url('../imagenes/lasalle.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.container { 
+    max-width: 1200px; 
+    margin: auto; 
+    padding: 0 20px; 
+}
+
+/* --- HEADER Y NAVEGACIÓN --- */
+header { 
+    background: var(--primary); 
+    color: white; 
+    padding: 15px 0; 
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3); 
+}
+
+.header-flex { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+.logo-link { 
+    text-decoration: none; 
+    color: inherit; 
+}
+
+.logo h1 span { 
+    color: var(--accent); 
+}
+
+.logo:hover { 
+    opacity: 0.85; 
+}
+
+.nav-links { 
+    display: flex; 
+    list-style: none; 
+    gap: 20px; 
+}
+
+.nav-links a { 
+    color: white; 
+    text-decoration: none; 
+    font-weight: bold; 
+    transition: 0.3s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--accent);
+}
+
+/* --- SECCIÓN INTRO (INDEX) --- */
+.intro-web { padding: 60px 0; text-align: center; }
+.intro-content h2 { font-size: 3rem; color: var(--primary); margin-bottom: 15px; text-shadow: 2px 2px 4px rgba(255,255,255,0.5); }
+.lead { font-size: 1.3rem; max-width: 800px; margin: 0 auto 30px; font-weight: 600; }
+.intro-stats { display: flex; justify-content: center; gap: 50px; margin-bottom: 30px; }
+.intro-stats strong { font-size: 2rem; color: var(--primary); display: block; border-bottom: 4px solid var(--accent); }
+
+.btn-primary { background: var(--primary); color: white; padding: 15px 30px; text-decoration: none; border-radius: 50px; font-weight: bold; }
+
+/* --- BUSCADOR --- */
+.search-bar-section { padding-bottom: 40px; }
+.search-wrapper input { width: 100%; max-width: 700px; display: block; margin: 0 auto; padding: 15px 25px; border-radius: 50px; border: 3px solid var(--primary); font-size: 1.1rem; }
+
+/* --- GRID DE TARJETAS --- */
+.category-header { margin: 50px 0 25px; color: var(--primary); border-left: 10px solid var(--accent); padding-left: 15px; font-size: 1.8rem; }
+.grid-acciones { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; }
+
+.card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.2); transition: 0.3s; }
+.card:hover { transform: translateY(-8px); }
+.card img { width: 100%; height: 170px; object-fit: cover; }
+.card-content { padding: 20px; }
+
+.tag { background: var(--accent); color: var(--primary); font-size: 0.7rem; font-weight: bold; padding: 4px 10px; border-radius: 5px; }
+.btn-card { display: block; text-align: center; background: var(--primary); color: white; padding: 10px; text-decoration: none; margin-top: 15px; border-radius: 5px; font-weight: bold; }
+
+/* --- FOOTER --- */
+footer { background: #1d3557; color: white; text-align: center; padding: 40px 0; }
+
+/* =========================================
+   RESPONSIVE (IGUAL QUE EN INDEX)
+   ========================================= */
+@media (max-width: 768px) {
+    /* Ocultamos botón de menú para ver los enlaces directamente */
+    .menu-toggle { 
+        display: none !important; 
+    }
+
+    /* Apilamos logo y navegación */
+    .header-flex {
+        flex-direction: column;
+        gap: 15px;
+        padding: 10px 0;
+    }
+
+    /* Forzamos a que el menú se vea siempre como en tu foto 2 */
+    .nav-links { 
+        display: flex !important; 
+        flex-direction: row;      /* Enlaces uno al lado del otro */
+        justify-content: center;
+        width: 100%;
+        gap: 15px;
+        padding: 0;
+        position: static;         /* Sin flotar sobre el contenido */
+        background: transparent;
+    }
+
+    .nav-links a {
+        font-size: 0.9rem;
+    }
+
+    /* Ajustes de contenido para móvil */
+    .intro-content h2 { font-size: 2rem; }
+    .intro-stats { gap: 20px; flex-wrap: wrap; }
+    .intro-stats strong { font-size: 1.5rem; }
+    
+    .category-header { font-size: 1.5rem; }
+}
